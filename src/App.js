@@ -1,14 +1,14 @@
-import React from "react";
-import "./styles.css";
+import React from 'react';
+import './styles.css';
 
-import useSomething from "./hooks/useSomething";
+import useSomething from './hooks/useSomething';
 
 export default function App() {
-  const person1 = useSomething("1");
-  console.log(person1[0]);
+  const { data, loading, error } = useSomething('1');
+  console.log(data);
   return (
     <div className="App">
-      <h1>Hello Foo</h1>
+      {!loading && !error && <h1>{`Hello ${data.name}`}</h1>}
     </div>
   );
 }
