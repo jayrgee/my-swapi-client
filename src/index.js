@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./App";
-import config from "./classes/Config";
+import config from "./config";
 
 config.load().then(settings => {
   console.log(`settings`, settings);
