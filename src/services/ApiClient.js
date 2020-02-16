@@ -1,18 +1,18 @@
-// this could be an api client
-import config from "../config";
-import axios from "axios";
+import config from '../config';
+import axios from 'axios';
 
 const ApiClient = () => {
   let _instance = null;
   return {
-    instance: function() {
+    instance() {
       if (!_instance) {
-        _instance = axios.create(config.get());
+        const axConfig = config.get();
+        console.log(`axios.create`, axConfig)
+        _instance = axios.create(axConfig);
       }
       return _instance;
-  
     },
-    person: function(id, axConfig) {
+    getPerson(id, axConfig) {
       const query = `people/${id}`;
       return this.instance().get(query, axConfig);
     }

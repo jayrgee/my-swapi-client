@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const Config = () => {
+const _Config = () => {
   let _data = null;
   return {
-    get: function() {
+    get() {
       return _data;
     },
-    load: async function() {
+    async load() {
       const result = await axios.get('/config.json');
       _data = result.data;
       return _data;
@@ -14,5 +14,5 @@ const Config = () => {
   };
 };
 
-export default Config();
-export { Config };
+export default _Config();
+export { _Config };
